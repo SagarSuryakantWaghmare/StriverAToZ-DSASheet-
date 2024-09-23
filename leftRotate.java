@@ -10,8 +10,18 @@ public class leftRotate {
      arr[n-1]=temp;
      return arr;
     }
-    public static int[] leftRotate(int[]arr,int n){
-        
+    public static void leftRotate(int[]arr,int n,int d){
+        d=d%n;
+        int temp[]=new int[d];
+        for (int i = 0; i < d; i++) {
+            temp[i]=arr[i];
+        }
+        for (int i = d; i < n; i++) {
+            arr[i-d]=arr[i];
+        }
+        for(int i=n-d;i<n;i++){
+            arr[i]=temp[i-(n-d)];
+        }
     }
 
     public static void main(String[] args) {
@@ -26,5 +36,14 @@ public class leftRotate {
         // for (int i : larr) {
         //     System.out.print(i+" ");
         // }
+        for (int i : arr) {
+            System.out.print(i+" ");
+        }
+        System.out.println();
+        System.out.println("Left rotated");
+        leftRotate(arr, n, 2);
+        for (int i : arr) {
+            System.out.print(i+" ");
+        }
     }
 }
