@@ -20,10 +20,7 @@ public class rotation {
             System.out.print(arr[i]+" ");
         }
         leftRotation(arr,n,d);
-        System.out.println("After left rotation:
-        
-        
-        ");
+        System.out.println("After left rotation:");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]+" ");
         }
