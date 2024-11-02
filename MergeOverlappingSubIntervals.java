@@ -24,12 +24,9 @@ public class MergeOverlappingSubIntervals {
 
         // Optimal
         for (int i = 0; i < arr.size(); i++) {
-            // If ans is empty or current interval does not overlap with the last merged one
             if (ans.isEmpty() || arr.get(i).get(0) > ans.get(ans.size() - 1).get(1)) {
-                // Add current interval to the ans list
                 ans.add(arr.get(i));
             } else {
-                // Merge the current interval with the last interval in ans
                 ans.get(ans.size() - 1).set(1, Math.max(ans.get(ans.size() - 1).get(1), arr.get(i).get(1)));
             }
         }
