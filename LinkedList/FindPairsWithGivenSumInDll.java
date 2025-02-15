@@ -14,26 +14,62 @@ public class FindPairsWithGivenSumInDll {
         }
     }
 
-    public static void findPairs(Node head, int sum) {
-        Node temp1 = head;
-        List<List<Integer>> result = new ArrayList<>();
-        while (temp1 != null) {
-            Node temp2 = temp1.next;
-            while (temp2 != null) {
-                if (temp1.data + temp2.data == sum) {
-                    List<Integer> pair = new ArrayList<>();
-                    pair.add(temp1.data);
-                    pair.add(temp2.data);
-                    result.add(pair);
-                }
-                temp2 = temp2.next;
-            }
-            temp1 = temp1.next;
+    // public static void findPairs(Node head, int sum) {
+    //     Node temp1 = head;
+    //     List<List<Integer>> result = new ArrayList<>();
+    //     while (temp1 != null) {
+    //         Node temp2 = temp1.next;
+    //         while (temp2 != null) {
+    //             if (temp1.data + temp2.data == sum) {
+    //                 List<Integer> pair = new ArrayList<>();
+    //                 pair.add(temp1.data);
+    //                 pair.add(temp2.data);
+    //                 result.add(pair);
+    //             }
+    //             temp2 = temp2.next;
+    //         }
+    //         temp1 = temp1.next;
+    //     }
+    //     if (result.isEmpty()) {
+    //         System.out.println("No pairs found");
+    //     } else {
+    //         for (List<Integer> list : result) {
+    //             System.out.println(list);
+    //         }
+    //     }
+    // }
+    
+
+    // optimize approach
+    // Two pointers approach
+    public static void findPairs(Node head,int sum){
+        List<List<Integer>> result=new ArrayList<>();
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
         }
-        if (result.isEmpty()) {
+        Node right=temp;
+        Node left=head;
+
+        while(left!=null&&right!=null&&left!=right&&right.next!=left){
+            if(left.data+right.data==sum){
+             List<Integer> pair=new ArrayList<>();
+                pair.add(left.data);
+                pair.add(right.data);
+                result.add(pair);
+            }
+            else if(left.data+right.data<sum){
+                left=left.next;
+            }
+            else{
+                right=right.prev;
+            }
+        }
+        if(result.isEmpty()){
             System.out.println("No pairs found");
-        } else {
-            for (List<Integer> list : result) {
+        }
+        else{
+            for(List<Integer> list:result){
                 System.out.println(list);
             }
         }
