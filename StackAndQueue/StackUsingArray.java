@@ -5,7 +5,7 @@
  * LIFO Stands from the last in first out.
  * Implement using array
  */
-public class Stack {
+public class StackUsingArray {
     public static class StackImplementUsingArray{
         int[]array=new int[10];
         int total=10;
