@@ -6,7 +6,7 @@ public class ImplementQueueUsingStack {
         Stack<Integer> st2 = new Stack<>();
 
         void push(int val) {
-            st1.push(val); // Simply push the element onto st1
+            st1.push(val); 
         }
 
         int pop() {
@@ -14,7 +14,6 @@ public class ImplementQueueUsingStack {
                 if (st1.isEmpty()) {
                     throw new RuntimeException("Queue is empty");
                 }
-                // Move all elements from st1 to st2
                 while (!st1.isEmpty()) {
                     st2.push(st1.pop());
                 }
