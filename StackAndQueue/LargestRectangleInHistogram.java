@@ -30,17 +30,49 @@ public class LargestRectangleInHistogram {
         return ans;
     }
 
-    public static int Largest(int[] height) {
-        int n = height.length;
-        int nse[] = new int[n];
-        int pse[] = new int[n];
-        nse = nse(height);
-        pse = pse(height);
-        int maxi = 0;
+    // public static int Largest(int[] height) {
+    //     int n = height.length;
+    //     int nse[] = new int[n];
+    //     int pse[] = new int[n];
+    //     nse = nse(height);
+    //     pse = pse(height);
+    //     int maxi = 0;
+    //     for (int i = 0; i < n; i++) {
+    //         maxi = Math.max(maxi, height[i] * (nse[i] - pse[i] - 1));
+    //     }
+    //     return maxi;
+    // }
+
+    // Optimal solution
+    // We have to just do in the O(n) in the above solution 
+    // It just we do in the int the O(5n)
+    // We have to in the form of the to get the optimal ones
+    // so we do in the one traversal also
+    // It just to express the things should much matter at.
+    public static int Largest(int[] arr) {
+        Stack<Integer> st = new Stack<>();
+        int maxarea = 0;
+        int n = arr.length;
+
         for (int i = 0; i < n; i++) {
-            maxi = Math.max(maxi, height[i] * (nse[i] - pse[i] - 1));
+            while (!st.isEmpty() && arr[st.peek()] > arr[i]) {
+                int element = st.pop(); // Pop the top element
+                int nse = i; // Next smaller element index
+                int pse = st.isEmpty() ? -1 : st.peek(); // Previous smaller element index
+                maxarea = Math.max(maxarea, arr[element] * (nse - pse - 1));
+            }
+            st.push(i); // Push the current index
         }
-        return maxi;
+
+        // Process remaining elements in the stack
+        while (!st.isEmpty()) {
+            int element = st.pop();
+            int nse = n;
+            int pse = st.isEmpty() ? -1 : st.peek();
+            maxarea = Math.max(maxarea, arr[element] * (nse - pse - 1));
+        }
+
+        return maxarea;
     }
 
     public static void main(String[] args) {
