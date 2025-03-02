@@ -32,18 +32,16 @@ public class celebrityProblem {
                 down--;
             }
         }
-    
-        int candidate = top; 
-    
+        int candidate = top;
         for (int i = 0; i < n; i++) {
             if (i != candidate) {
                 if (arr[candidate][i] == 1 || arr[i][candidate] == 0) {
-                    return -1; 
+                    return -1;
                 }
             }
         }
     
-        return candidate; 
+        return candidate;
     }
     
 
