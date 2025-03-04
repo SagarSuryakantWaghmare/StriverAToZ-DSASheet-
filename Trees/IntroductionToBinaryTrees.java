@@ -73,8 +73,10 @@ public class IntroductionToBinaryTrees {
         b.right = d;
         System.out.println("PreOrder Traversal:");
         preOrder(a);
+        System.out.println();
         System.out.println("PostOrder Traversal:");
         postOrder(a);
+        System.out.println();
         System.out.println("InOrder Traversal:");
         inOrder(a);
 
