@@ -56,15 +56,13 @@ public class LargestRectangleInHistogram {
 
         for (int i = 0; i < n; i++) {
             while (!st.isEmpty() && arr[st.peek()] > arr[i]) {
-                int element = st.pop(); // Pop the top element
-                int nse = i; // Next smaller element index
-                int pse = st.isEmpty() ? -1 : st.peek(); // Previous smaller element index
+                int element = st.pop(); 
+                int nse = i; 
+                int pse = st.isEmpty() ? -1 : st.peek(); 
                 maxarea = Math.max(maxarea, arr[element] * (nse - pse - 1));
             }
-            st.push(i); // Push the current index
+            st.push(i); 
         }
-
-        // Process remaining elements in the stack
         while (!st.isEmpty()) {
             int element = st.pop();
             int nse = n;
