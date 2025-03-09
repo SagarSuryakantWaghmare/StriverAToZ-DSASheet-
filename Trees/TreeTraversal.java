@@ -34,7 +34,7 @@ public class TreeTraversal {
         while (!st.isEmpty()) {
             Pair p = st.pop();
             
-            if (p.state == 1) { // Preorder
+            if (p.state == 1) {
                 pre.add(p.node.data);
                 p.state++;
                 st.push(p);
@@ -42,7 +42,7 @@ public class TreeTraversal {
                     st.push(new Pair(p.node.left, 1));
                 }
             } 
-            else if (p.state == 2) { // Inorder
+            else if (p.state == 2) { 
                 in.add(p.node.data);
                 p.state++;
                 st.push(p);
@@ -50,7 +50,7 @@ public class TreeTraversal {
                     st.push(new Pair(p.node.right, 1));
                 }
             } 
-            else { // Postorder
+            else { 
                 post.add(p.node.data);
             }
         }
