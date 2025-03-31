@@ -72,10 +72,11 @@ public class recoverBST {
         root.left = new Node(3);
         root.right = new Node(8);
         root.left.left = new Node(1);
-        root.left.right = new Node(4); // Corrected value to maintain BST property
+        root.left.right = new Node(10); // Corrected value to maintain BST property
         root.right.left = new Node(7);
-        root.right.right = new Node(10); // Corrected value to maintain BST property
-
+        root.right.right = new Node(4); // Corrected value to maintain BST property
+       inorderPrint(root);
+       System.out.println("After recovery");
         recoverTree(root);
 
         inorderPrint(root);
