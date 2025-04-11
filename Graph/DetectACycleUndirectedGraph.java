@@ -29,7 +29,7 @@ public class DetectACycleUndirectedGraph {
                 if(vis[adjNode]==false){
                     vis[adjNode]=true;
                     q.add(new Pair(adjNode, node));
-                }
+                }    
                 else if(parent!=adjNode){
                     return true;
                 }
