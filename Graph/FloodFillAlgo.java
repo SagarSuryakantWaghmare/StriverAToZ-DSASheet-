@@ -12,12 +12,19 @@ public class FloodFillAlgo {
             return;
         }
         image[row][col]=newColor;
-
         // now go for the 4 directions
         fill(image, row-1, col, currentColor, newColor);//up
         fill(image, row+1, col, currentColor, newColor);//down
         fill(image, row, col-1, currentColor, newColor);//left
         fill(image, row, col+1, currentColor, newColor);//right
+    }
+    public static void printArr(int[][]arr){
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
     public static void main(String[] args) {
         // Some in this problem it goes only in the 4 directions
@@ -30,9 +37,12 @@ public class FloodFillAlgo {
         {1,1,0},
         {1,0,1}
         };
+        printArr(image);
         int sr=1;
         int sc=1;
         int newColor=2;
+        System.out.println("Flood Fill:");
         int ans[][]=floodFill(image,sr,sc,newColor);
+        printArr(ans);
     }
 }
