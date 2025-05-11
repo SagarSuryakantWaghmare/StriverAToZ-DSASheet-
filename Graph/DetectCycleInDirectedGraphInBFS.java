@@ -13,6 +13,7 @@ public class DetectCycleInDirectedGraphInBFS {
                 indegree[i]++;
             }
         }
+        
         Queue<Integer> q=new LinkedList<>();
         for (int i = 0; i < v; i++) {
             if(indegree[i]==0){
