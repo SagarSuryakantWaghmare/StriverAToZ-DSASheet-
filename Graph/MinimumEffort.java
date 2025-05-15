@@ -12,6 +12,7 @@ public class MinimumEffort {
             this.col = col;
         }
     }
+    // We just have to store in the queue in the form of the distance row and col
 
     public static int minimumEffort(int[][] heights) {
         PriorityQueue<Tuple> pq = new PriorityQueue<>((x, y) -> x.distance - y.distance);
