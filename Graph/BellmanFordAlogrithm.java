@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class BellmanFordAlogrithm {
     // Shortest path algorithm
@@ -25,7 +25,7 @@ public class BellmanFordAlogrithm {
         for(int i=0;i<v;i++){
             dis[i]=(int)(1e8);
         }
-        dist[s]=0;
+        dis[S]=0;
         // V*E
         for(int i=0;i<v-1;i++){
             for(ArrayList<Integer> it:edges){
