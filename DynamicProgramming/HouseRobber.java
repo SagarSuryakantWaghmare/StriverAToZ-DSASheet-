@@ -1,5 +1,5 @@
+import java.util.*;
 public class HouseRobber {
-
     // Memoization approach:top down approach
     public static int rob(int[]nums){
         int n=nums.length;
@@ -27,7 +27,7 @@ public class HouseRobber {
         int n=nums.length;
         if(n==1) return nums[0];
         int case1=robTab(nums,0,n-2);
-        int case2=robTab(nuss,1,n-1);
+        int case2=robTab(nums,1,n-1);
         return Math.max(case1,case2);
     }
     public static int robTab(int[]nums,int start,int end){
@@ -55,7 +55,7 @@ public class HouseRobber {
         int prev=0;
         int curr=0;
         for(int i=start;i<=end;i++){
-            int pick=numms[i]+prev;
+            int pick=nums[i]+prev;
             int notPick=curr;
             int temp=Math.max(pick,notPick);
             prev=curr;
