@@ -73,7 +73,6 @@ public class CherryPickup {
            else return grid[i][j1]+grid[i][j2];
         }
         if(dp[i][j1][j2]!=-1) return dp[i][j1][j2];
-        
         int dj[]={-1,0,1};
         for(int x:dj){
             for(int y:dj){
