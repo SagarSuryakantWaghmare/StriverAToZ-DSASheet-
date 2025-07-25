@@ -18,7 +18,6 @@ public class CanParition{
         for(int i = 0; i <= nums.length; i++) {
             dp[i][0] = true;
         }
-        
         for(int i = 1; i <= nums.length; i++) {
             for(int j = 1; j <= target; j++) {
                 if(nums[i - 1] > j) {
