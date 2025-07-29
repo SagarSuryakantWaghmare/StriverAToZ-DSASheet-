@@ -4,12 +4,10 @@ public class CountPartitionsWithGivenDiff {
     public static int countPartitionsWithDiff(int[] arr, int d) {
         int n = arr.length;
         int totalSum = 0;
-        
         // Calculate total sum
         for (int num : arr) {
             totalSum += num;
         }
-        
         // Check if partition is possible
         // For S1 - S2 = d and S1 + S2 = totalSum
         // Solving: S2 = (totalSum - d) / 2
