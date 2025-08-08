@@ -62,8 +62,8 @@ public class LongestCommonSubsequence {
 
     // Space optimize code
     public static int longestCommonSubsequenceSpace(String s1,String s2){
-        int n1=s1.length();
-        int n2=s2.length();
+        int n=s1.length();
+        int m=s2.length();
         int []prev=new int[m+1];
         int []curr=new int[m+1];
 
