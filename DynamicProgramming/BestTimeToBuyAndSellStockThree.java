@@ -25,49 +25,78 @@ public class BestTimeToBuyAndSellStockThree {
             return 0;
         if (cap == 0)
             return 0;
-        if(dp[idx][buy][cap]!=-1) return dp[idx][buy][cap];
-        int profit=0;
-        if(buy==1){
-            profit=Math.max(-prices[idx]+maxProfitMem(prices, idx+1, 0, cap, dp),
-            0+maxProfitMem(prices, idx+1, 1, cap, dp));
-        }    
-        else{
-            profit=Math.max(prices[idx]+maxProfitMem(prices, idx+1, 1, cap-1, dp),
-            0+maxProfitMem(prices, idx+1, 0, cap, dp));
+        if (dp[idx][buy][cap] != -1)
+            return dp[idx][buy][cap];
+        int profit = 0;
+        if (buy == 1) {
+            profit = Math.max(-prices[idx] + maxProfitMem(prices, idx + 1, 0, cap, dp),
+                    0 + maxProfitMem(prices, idx + 1, 1, cap, dp));
+        } else {
+            profit = Math.max(prices[idx] + maxProfitMem(prices, idx + 1, 1, cap - 1, dp),
+                    0 + maxProfitMem(prices, idx + 1, 0, cap, dp));
         }
-        return dp[idx][buy][cap]=profit;
+        return dp[idx][buy][cap] = profit;
     }
 
     // Tabulazation way
-    public static int maxProfitTab(int prices[]){
-        int n=prices.length;
-        int dp[][][]=new int[n+1][2][3];
+    public static int maxProfitTab(int prices[]) {
+        int n = prices.length;
+        int dp[][][] = new int[n + 1][2][3];
         // base case for the cap 0
         // cap 0 then dp put 0
-        for(int i=0;i<=n;i++){
-            for(int b=0;b<=1;b++){
-                dp[i][b][0]=0;
+        for (int i = 0; i <= n; i++) {
+            for (int b = 0; b <= 1; b++) {
+                dp[i][b][0] = 0;
             }
         }
         // Compute the calculations for the max profit
-        for(int i=n-1;i>=0;i--){
-            for(int b=0;b<=1;b++){
-                for(int c=1;c<=2;c++){
-                    int profit=0;
-                    if(b==1){
-                        profit=Math.max(-prices[i]+dp[i+1][0][c],
-                        0+dp[i+1][1][c]);
+        for (int i = n - 1; i >= 0; i--) {
+            for (int b = 0; b <= 1; b++) {
+                for (int c = 1; c <= 2; c++) {
+                    int profit = 0;
+                    if (b == 1) {
+                        profit = Math.max(-prices[i] + dp[i + 1][0][c],
+                                0 + dp[i + 1][1][c]);
+                    } else {
+                        profit = Math.max(prices[i] + dp[i + 1][1][c - 1],
+                                0 + dp[i + 1][0][c]);
                     }
-                    else{
-                        profit=Math.max(prices[i]+dp[i+1][1][c-1],
-                        0+dp[i+1][0][c]);
-                    }
-                    dp[i][b][c]=profit;
+                    dp[i][b][c] = profit;
                 }
             }
         }
         return dp[0][1][2];
     }
+
+    public static int maxProfitSpaceOpt(int []prices){
+        int n=prices.length;
+        int curr[][]=new int[2][3];
+        int after[][]=new int[2][3];
+       
+            for(int b=0;b<=1;b++){
+                curr[b][0]=0;
+            }
+        
+        for(int i=n-1;i>=0;i--){
+            for(int b=0;b<=1;b++){
+                for(int c=1;c<=2;c++){
+                    int profit=0;
+                    if(b==1){
+                        profit=Math.max(-prices[i]+curr[0][c], 
+                        0+curr[1][c]);
+                    }
+                    else{
+                        profit=Math.max(prices[i]+curr[1][c-1],
+                        0+curr[0][c]);
+                    }
+                    curr[b][c]=profit;
+                }
+            }
+            after=curr.clone();
+        }
+        return after[1][2];
+    }
+
     public static void main(String[] args) {
         int[] prices = { 3, 2, 6, 5, 0, 3 };
         // Output: 7
@@ -82,6 +111,8 @@ public class BestTimeToBuyAndSellStockThree {
         }
         // System.out.println(dp[3][1][2]);
         // System.out.println(maxProfitMem(prices, 0, 1, 2, dp));
-        System.out.println(maxProfitTab(prices));
+        // System.out.println(maxProfitTab(prices));
+        // Space opitmization solution
+        System.out.println(maxProfitSpaceOpt(prices));
     }
 }
