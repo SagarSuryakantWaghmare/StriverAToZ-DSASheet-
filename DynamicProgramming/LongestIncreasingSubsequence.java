@@ -18,6 +18,7 @@ public class LongestIncreasingSubsequence {
         return tab(arr,n);
     }
     public static int rec(int arr[],int n,int idx){
+        //pick not pick way
         if(idx==n) return 1;
         int maxLength=1;
         for(int i=idx+1;i<n;i++){
