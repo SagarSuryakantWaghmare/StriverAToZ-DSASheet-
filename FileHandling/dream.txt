@@ -1,0 +1,6 @@
+To achieve all the goals in the life. Make sure don't give up in any moment of life.
+To read the file contents, you can call the readAllBytes() method on the inputStream object. This reads the file as byte values – essentially, small units of data that represent characters, numbers, or other file content – and returns them as a byte array. A byte array is simply a sequence of these byte values, which you can use for tasks like printing the file’s contents to the console.
+
+readAllBytes() can throw an IOException (e.g. if the file is corrupted or inaccessible), so you’ll need a catch block after handling FileNotFoundException. Ensure the file exists, is not in use, and has proper permissions. Use try-with-resources to automatically close the stream, which is safer than manually closing it in a finally block and prevents additional IOExceptions if the stream wasn’t properly initialized. 
+
+Successful reads return file contents without exceptions. For extra assurance, use logging to confirm the stream closed correctly. The necessary import statements (java.io.File, java.io.FileInputStream, java.io.FileNotFoundException) should be included at the top of your file to avoid compilation errors.
