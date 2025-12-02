@@ -198,6 +198,4 @@ This repository showcases:
 
 ---
 
-*Last Updated: August 2025 | Continuously evolving with new problems and optimizations*
-
 > 💡 **"Code is like humor. When you have to explain it, it's bad."** - This repository demonstrates clear, self-explanatory solutions that speak for themselves.
